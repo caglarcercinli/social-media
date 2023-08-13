@@ -3,10 +3,12 @@ package controllers
 import (
 	"net/http"
 
+	"example.com/social-media/services"
 	"github.com/gin-gonic/gin"
 )
 
 func GetUserById(c *gin.Context) {
-	c.IndentedJSON(http.StatusOK, "user1")
+	name := services.GetUserByIdFromDatabase(c)
+	c.IndentedJSON(http.StatusOK, name)
 	return
 }
