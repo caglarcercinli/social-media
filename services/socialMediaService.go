@@ -31,7 +31,7 @@ func GetUserByIdFromDatabase(c *gin.Context)(models.User, error) {
 
 func GetMessagesByUserIdFromDatabase(c *gin.Context)([]models.Message, error) {
 	var messages []models.Message 
-	user_id := c.Param("user_id")
+	user_id := c.Param("id")
 	conn, err := pgx.Connect(context.Background(), URL)
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
