@@ -8,4 +8,4 @@ commands to run:
 endpoints:
 
     localhost:8080/users/:id => returns a user by id
-    localhost:8080/messages/:user_id => returns messages of a user
+    localhost:8080/users/:id/messages => returns messages of a user
