@@ -8,7 +8,11 @@ import (
 )
 
 func GetUserById(c *gin.Context) {
-	name := services.GetUserByIdFromDatabase(c)
-	c.IndentedJSON(http.StatusOK, name)
+	user, err := services.GetUserByIdFromDatabase(c)
+	if err!=nil{
+	c.IndentedJSON(http.StatusNotFound, gin.H{"message": "user not found"})
+	return
+	}
+	c.IndentedJSON(http.StatusOK, user)
 	return
 }
